@@ -2,9 +2,7 @@ import { defineBuildConfig } from "unbuild";
 
 export default defineBuildConfig({
     failOnWarn: false,
-
-    declaration: true,
-
+    declaration: "compatible",
     rollup: {
         inlineDependencies: true,
         esbuild: {
