@@ -20,6 +20,8 @@ NGPM (Node Global Package Manager) is a library designed to simplify the managem
 
 It uses command line tools for each package manager (npm, yarn, pnpm, and bun) to perform the tasks to make development easier, faster and more reliable.
 
+> Note: Bun doesn't offer needed commands to search for globally installed packages, so it's not supported yet.
+
 <br>
 <br>
 
