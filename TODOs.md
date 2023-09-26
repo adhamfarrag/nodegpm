@@ -23,18 +23,9 @@
         - [x] packages
         - [x] binaries
         - [x] prefix
-    - [ ] update (update package manager)
-    - [ ] dependency:
-        - [ ] install
-        - [ ] isInstalled
-        - [ ] remove
-        - [ ] update
-        - [ ] list
-
 
 - [x] detectGlobalPackageManagers
 - [x] mostUsedGlobalPackageManager
 - [x] isInstalledGlobally
 - [x] installGlobally
 - [x] removeGlobally
-- [ ] updateGlobally

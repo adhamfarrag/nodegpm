@@ -2,24 +2,28 @@ import npm from './npm';
 import yarn from './yarn';
 import pnpm from './pnpm';
 import bun from './bun';
-import type { PackageManagerName } from '../types';
+
 
 const commands = {
     "npm": {
-        installCommand: 'npm install -g',
-        uninstallCommand: 'npm uninstall -g',
+        installCommand: 'install',
+        uninstallCommand: 'uninstall',
+        flag: '-g'
     },
     "yarn": {
-        installCommand: 'yarn global add',
-        uninstallCommand: 'yarn global remove',
+        installCommand: 'add',
+        uninstallCommand: 'remove',
+        flag: 'global'
     },
     "pnpm": {
-        installCommand: 'pnpm install -g',
-        uninstallCommand: 'pnpm uninstall -g',
+        installCommand: 'add',
+        uninstallCommand: 'remove',
+        flag: '-g'
     },
     "bun": {
-        installCommand: 'npm install -g bun',
-        uninstallCommand: 'npm uninstall -g bun',
+        installCommand: 'install',
+        uninstallCommand: 'uninstall',
+        flag: '-g'
     },
 }
 
