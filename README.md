@@ -1,6 +1,6 @@
 <div align="center">
-<h3>🌎 NGPM</h3>
- <span>Node global package tool for managing global packages</span>
+<h3>NodeGPM</h3>
+ <span>Your tool for managing global packages</span>
 
 <span>🚧 Project heavy development 🚧 </span>
 
@@ -14,9 +14,9 @@
 
 <br>
 
-### What does NGPM do?
+### What does NodeGPM do?
 
-NGPM (Node Global Package Manager) is a library designed to simplify the management of global Node.js packages across different package managers like npm, yarn, pnpm, and bun. It provides a set of utility functions to perform tasks such as installing, removing, detecting globally installed packages, detecting available package managers, most used one, and more.
+NodeGPM (Node Global Package Manager) is a library designed to simplify the management of global Node.js packages across different package managers like npm, yarn, pnpm, and bun. It provides a set of utility functions to perform tasks such as installing, removing, detecting globally installed packages, detecting available package managers, most used one, and more.
 
 It uses command line tools for each package manager (npm, yarn, pnpm, and bun) to perform the tasks to make development easier, faster and more reliable.
 
@@ -28,13 +28,13 @@ It uses command line tools for each package manager (npm, yarn, pnpm, and bun) t
 ### Installation
 
 ```sh
-npm install ngpm
+npm install nodegpm
 
-yarn add ngpm
+yarn add nodegpm
 
-pnpm add ngpm
+pnpm add nodegpm
 
-bun add ngpm
+bun add nodegpm
 ```
 
 <br>
@@ -102,17 +102,17 @@ await removeGlobally(packagesToRemove);
 
 ### Acknowledgement
 
-ngpm is inspired by [nypm](https://github.com/unjs/nypm) by [unjs](https://github.com/unjs) team. 💚
+NodeGPM is inspired by [nypm](https://github.com/unjs/nypm) by [unjs](https://github.com/unjs) team. 💚
 
 <br>
 
 ### Contributing
 
 Thanks for your interest 💚 <br>
-If you have any idea, feel free to [open a discussion](https://github.com/adhamfarrag/ngpm/discussions/new?category=ideas) first and let's talk about it!
+If you have any idea, feel free to [open a discussion](https://github.com/adhamfarrag/nodegpm/discussions/new?category=ideas) first and let's talk about it!
 
 <br>
 
 ### License
 
-[MIT](https://github.com/adhamfarrag/ngpm/blob/main/LICENSE) License © 2023.
+[MIT](https://github.com/adhamfarrag/nodegpm/blob/main/LICENSE) License © 2023.
