@@ -27,6 +27,7 @@
         "lint": "eslint ./src --ext .ts --fix",
         "build": "unbuild",
         "release": "pnpm test && pnpm build && changelogen --release --push && pnpm publish",
+        "try": "unbuild && clear && node dist/index.mjs",
         "test": "pnpm lint && pnpm test:types && vitest run --coverage",
         "test:types": "tsc --noEmit"
     },
