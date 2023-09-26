@@ -27,7 +27,7 @@ It uses command line tools for each package manager (npm, yarn, pnpm, and bun) t
 
 ### Installation
 
-```bash
+```sh
 npm install ngpm
 
 yarn add ngpm
