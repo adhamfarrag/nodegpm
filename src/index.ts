@@ -1,6 +1,6 @@
 import { consola } from "consola";
 import pm from './pm';
-import { detectGlobalPackageManagers } from './api/detection';
+import { detectGlobalPackageManagers, mostUsedGlobalPackageManager, isInstalledGlobally } from './api/detection';
 
 consola.start('Hello World!')
 consola.start('I love UNjs!');
@@ -25,7 +25,13 @@ const yarn = pm.yarn;
     }
 
     const globalPackageManagers = await detectGlobalPackageManagers();
+    const mostUsedPM = await mostUsedGlobalPackageManager();
+    const nuxi = await isInstalledGlobally('nuxi');
+    const halabesa = await isInstalledGlobally('halabesa');
 
     consola.info('globalPackageManagers: ', globalPackageManagers);
+    consola.info('mostUsedPM: ', mostUsedPM);
+    consola.info('nuxi: ', nuxi);
+    consola.info('halabesa: ', halabesa);
 
 })();

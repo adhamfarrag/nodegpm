@@ -9,7 +9,7 @@ const isInstalled = async () => {
     }
 }
 
-export const modulesDir = async () => {
+export const modulesDir = async (): Promise<string|null> => {
     try {
         const { stdout: modulesDir, } = await await execa('npm', ['root', '-g']);
         return modulesDir;

@@ -32,9 +32,9 @@
         - [ ] list
 
 
-- [ ] detectGlobalPackageManagers
-- [ ] mostUsedGlobalPackageManager
-- [ ] isInstalledGlobally
+- [x] detectGlobalPackageManagers
+- [x] mostUsedGlobalPackageManager
+- [x] isInstalledGlobally
 - [ ] installGlobally
 - [ ] removeGlobally
 - [ ] updateGlobally
