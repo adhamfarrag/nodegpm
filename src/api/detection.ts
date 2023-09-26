@@ -1,7 +1,7 @@
 import { resolve } from 'pathe'
 import { existsSync } from "node:fs";
 import pms from '../pm'
-import { countDirectories } from '../utils'
+import { countDirectories, exists} from '../utils'
 
 
 const npm = pms.npm
@@ -37,25 +37,33 @@ export async function mostUsedGlobalPackageManager(): Promise<string> {
 
     if (await npm.isInstalled()) {
         const modulesDir = await npm.dir.modules()
+
         if (modulesDir) {
-            const dependencies = await countDirectories(modulesDir)
-            packageManagers.push({ name: 'npm', dependencies })
+            if (await exists(modulesDir)) {
+                const dependencies = await countDirectories(modulesDir)
+                packageManagers.push({ name: 'npm', dependencies })
+            }
+
         }
     }
 
     if (await yarn.isInstalled()) {
         const modulesDir = await yarn.dir.modules()
         if (modulesDir) {
-            const dependencies = await countDirectories(modulesDir)
-            packageManagers.push({ name: 'yarn', dependencies })
+            if (await exists(modulesDir)) {
+                const dependencies = await countDirectories(modulesDir)
+                packageManagers.push({ name: 'yarn', dependencies })
+            }
         }
     }
 
     if (await pnpm.isInstalled()) {
         const modulesDir = await pnpm.dir.modules()
         if (modulesDir) {
-            const dependencies = await countDirectories(modulesDir)
-            packageManagers.push({ name: 'pnpm', dependencies })
+            if (await exists(modulesDir)) {
+                const dependencies = await countDirectories(modulesDir)
+                packageManagers.push({ name: 'pnpm', dependencies })
+            }
         }
     }
 
