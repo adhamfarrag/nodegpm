@@ -10,4 +10,10 @@ export default defineBuildConfig({
     failOnWarn: false,
 
     declaration: true,
+
+    rollup: {
+        esbuild: {
+            minify: true,
+        },
+    },
 });
