@@ -13,7 +13,7 @@
 - [ ] Size/Speed Optimization
 - [ ] Documentation
 
-### Feautres
+### Features
 
 - PMS:
     - [x] install
@@ -21,9 +21,8 @@
     - [x] remove
     - [x] dirs (package manager directory)
         - [x] packages
-        - [ ] binaries
-        - [ ] cache
-        - [ ] prefix
+        - [x] binaries
+        - [x] prefix
     - [ ] update (update package manager)
     - [ ] dependency:
         - [ ] install
