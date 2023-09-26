@@ -1,7 +1,8 @@
 import { resolve } from 'pathe'
 import { existsSync } from "node:fs";
 import pms from '../pm'
-import { countDirectories, exists} from '../utils'
+import { countDirectories, exists } from '../utils'
+import type { PackageManager, PackageManagerResult } from '../types'
 
 
 const npm = pms.npm
@@ -74,39 +75,39 @@ export async function mostUsedGlobalPackageManager(): Promise<string> {
 
 }
 
-export async function isInstalledGlobally(dependency: string): Promise<boolean> {
-    const packageManagers = [
+export async function isInstalledGlobally(dependency: string): Promise<PackageManagerResult | null> {
+    const packageManagers: PackageManager[] = [
         { manager: npm, name: 'npm' },
         { manager: yarn, name: 'yarn' },
         { manager: pnpm, name: 'pnpm' }
     ];
 
-    let isInstalled = false;
+    async function checkDependency(manager: PackageManager): Promise<PackageManagerResult | null> {
+        try {
+            if (await manager.manager.isInstalled()) {
+                const modulesDir = await manager.manager.dir.modules();
 
-    for (const { manager, name } of packageManagers) {
-        if (await manager.isInstalled()) {
-            const modulesDir = await manager.dir.modules();
-
-            if (modulesDir) {
-                const doesExist = await existsSync(modulesDir?.toString());
-                if (!doesExist) {
-                    continue;
-                } else {
-                    const dependencyDir = resolve(modulesDir, dependency);
-                    try {
-                        if (existsSync(dependencyDir)) {
-                            console.log(`exists under ${name}`);
-                            isInstalled = true;
-                            break; // Exit loop if dependency is found
-                        }
-                    } catch (error) {
-                        console.error(`Error checking if ${dependency} exists under ${name}:`, error);
+                if (modulesDir) {
+                    const doesExist = await existsSync(modulesDir.toString());
+                    if (doesExist) {
+                        const dependencyDir = resolve(modulesDir, dependency);
+                        const isInstalled = existsSync(dependencyDir);
+                        return { name: manager.name, isInstalled };
                     }
                 }
-
             }
+        } catch (error) {
+            console.error(`Error checking if ${dependency} exists under ${manager.name}:`, error);
         }
+        return null;
     }
 
-    return isInstalled;
+    const results = await Promise.all(packageManagers.map(checkDependency));
+    const validResults = results.filter(result => result !== null) as PackageManagerResult[];
+
+    if (validResults.length > 0) {
+        return validResults[0];
+    }
+
+    return null;
 }

@@ -30,7 +30,7 @@ const yarn = pm.yarn;
     const nuxi = await isInstalledGlobally('nuxi');
     const halabesa = await isInstalledGlobally('halabesa');
 
-    const install = await installGlobally('npm', ['nuxi', 'halabesa']);
+    const install = await installGlobally('npm', ['eslint', 'prettier']);
 
     consola.info('globalPackageManagers: ', globalPackageManagers);
     consola.info('mostUsedPM: ', mostUsedPM);

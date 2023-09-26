@@ -35,6 +35,6 @@
 - [x] detectGlobalPackageManagers
 - [x] mostUsedGlobalPackageManager
 - [x] isInstalledGlobally
-- [ ] installGlobally
-- [ ] removeGlobally
+- [x] installGlobally
+- [x] removeGlobally
 - [ ] updateGlobally
