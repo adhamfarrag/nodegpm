@@ -1,7 +1,6 @@
 export type PackageManagerName = "npm" | "yarn" | "pnpm" | "bun";
 
-
-type PackageManager = {
+export type PackageManager = {
     manager: {
     isInstalled: () => Promise<boolean>,
     install?: () => Promise<boolean>,
@@ -15,7 +14,7 @@ type PackageManager = {
     name: PackageManagerName
 };
 
-type PackageManagerResult = {
+export type PackageManagerResult = {
     name: string;
     isInstalled: boolean;
 };

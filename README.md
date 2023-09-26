@@ -41,9 +41,7 @@ bun add ngpm
 
 ### Usage
 
-NGPM provides a set of utility functions to manage globally installed packages. Here are some of the key functionalities:
-
-<br>
+Here are the vailable functions:
 
 #### Detecting Global Package Managers
 
