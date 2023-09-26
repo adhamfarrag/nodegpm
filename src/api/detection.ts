@@ -72,10 +72,13 @@ export async function isInstalledGlobally(dependency: string): Promise<boolean> 
         const modulesDir = await npm.dir.modules()
         if (modulesDir) {
             const dependencyDir = resolve(modulesDir, dependency)
-            // TODO: check if dependencyDir exists
-            if (existsSync(dependencyDir)) {
-                console.log('exists under npm');
-                return true
+            try {
+                if (existsSync(dependencyDir)) {
+                    console.log('exists under npm');
+                    return true
+                }
+            } catch (error) {
+                console.error(`Error checking if ${dependency} exists under npm:`, error)
             }
         }
     }
@@ -84,10 +87,13 @@ export async function isInstalledGlobally(dependency: string): Promise<boolean> 
         const modulesDir = await yarn.dir.modules()
         if (modulesDir) {
             const dependencyDir = resolve(modulesDir, dependency)
-            // TODO: check if dependencyDir exists
-            if (existsSync(dependencyDir)) {
-                console.log('exists under yarn');
-                return true
+            try {
+                if (existsSync(dependencyDir)) {
+                    console.log('exists under yarn');
+                    return true
+                }
+            } catch (error) {
+                console.error(`Error checking if ${dependency} exists under yarn:`, error)
             }
         }
     }
@@ -96,10 +102,13 @@ export async function isInstalledGlobally(dependency: string): Promise<boolean> 
         const modulesDir = await pnpm.dir.modules()
         if (modulesDir) {
             const dependencyDir = resolve(modulesDir, dependency)
-            // TODO: check if dependencyDir exists
-            if (existsSync(dependencyDir)) {
-                console.log('exists under pnpm');
-                return true
+            try {
+                if (existsSync(dependencyDir)) {
+                    console.log('exists under pnpm');
+                    return true
+                }
+            } catch (error) {
+                console.error(`Error checking if ${dependency} exists under pnpm:`, error)
             }
         }
     }
