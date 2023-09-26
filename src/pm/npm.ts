@@ -1,44 +1,40 @@
 import { execa } from 'execa';
 
-const isInstalled = async () => {
+async function isInstalled() {
     try {
-        const { stdout: npmVersion } = await execa('npm', ['--version']);
+        await execa('npm', ['--version']);
         return true;
     } catch (error) {
         return false;
     }
 }
 
-export const modulesDir = async (): Promise<string|null> => {
+async function modulesDir() {
     try {
-        const { stdout: modulesDir, } = await await execa('npm', ['root', '-g']);
-        return modulesDir;
+        const { stdout } = await execa('npm', ['root', '-g']);
+        return stdout;
     } catch (error) {
-
         return null;
     }
 }
 
-export const prefixDir = async () => {
+async function prefixDir() {
     try {
-        const { stdout: prefixDir, } = await await execa('npm', ['prefix', '-g']);
-        return prefixDir;
+        const { stdout } = await execa('npm', ['prefix', '-g']);
+        return stdout;
     } catch (error) {
-
         return null;
     }
 }
 
-export const binDir = async () => {
+async function binDir() {
     try {
-        const { stdout: binDir, } = await await execa('npm', ['bin', '-g']);
-        return binDir;
+        const { stdout } = await execa('npm', ['bin', '-g']);
+        return stdout;
     } catch (error) {
-
         return null;
     }
 }
-
 
 const npm = {
     isInstalled,

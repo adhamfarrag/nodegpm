@@ -3,36 +3,29 @@ import yarn from './yarn';
 import pnpm from './pnpm';
 import bun from './bun';
 
+const pms = { npm, yarn, pnpm, bun };
 
-const commands = {
-    "npm": {
+const installationCommands = {
+    npm: {
         installCommand: 'install',
         uninstallCommand: 'uninstall',
         flag: '-g'
     },
-    "yarn": {
+    yarn: {
         installCommand: 'add',
         uninstallCommand: 'remove',
         flag: 'global'
     },
-    "pnpm": {
+    pnpm: {
         installCommand: 'add',
         uninstallCommand: 'remove',
         flag: '-g'
     },
-    "bun": {
+    bun: {
         installCommand: 'install',
         uninstallCommand: 'uninstall',
         flag: '-g'
     },
-}
+};
 
-const pms = {
-    npm,
-    yarn,
-    pnpm,
-    bun,
-}
-
-export { npm, yarn, pnpm, bun, commands };
-export default pms;
+export { pms as default, npm, yarn, pnpm, bun, installationCommands };

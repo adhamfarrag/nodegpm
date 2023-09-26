@@ -1,14 +1,10 @@
-import { resolve } from 'pathe'
+import { resolve } from 'pathe';
 import { existsSync } from "node:fs";
-import pms from '../pm'
-import { countDirectories, exists } from '../utils'
-import type { PackageManager, PackageManagerResult } from '../types'
+import packageManagers from '../pm';
+import { countDirectories, exists } from '../utils';
+import type { PackageManager, PackageManagerResult } from '../types';
 
-
-const npm = pms.npm
-const yarn = pms.yarn
-const pnpm = pms.pnpm
-const bun = pms.bun
+const { npm, yarn, pnpm, bun } = packageManagers;
 
 export async function  detectGlobalPackageManagers() {
     const globalPackageManagers = []

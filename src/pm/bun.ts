@@ -1,33 +1,31 @@
 import { execa } from 'execa';
 
-
-export const isInstalled = async () => {
+async function isInstalled() {
     try {
-        const { stdout: bunVersion } = await execa('bun', ['--version']);
+        await execa('bun', ['--version']);
         return true;
     } catch (error) {
         return false;
     }
 }
 
-export const install = async () => {
+async function install() {
     try {
-        const { stdout: yarnVersion } = await execa('npm', ['install', '-g', 'bun']);
+        await execa('npm', ['install', '-g', 'bun']);
         return true;
     } catch (error) {
         return false;
     }
 }
 
-export const remove = async () => {
+async function remove() {
     try {
-        const { stdout: yarnVersion } = await execa('npm', ['uninstall', '-g', 'bun']);
+        await execa('npm', ['uninstall', '-g', 'bun']);
         return true;
     } catch (error) {
         return false;
     }
 }
-
 
 const bun = {
     isInstalled,

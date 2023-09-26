@@ -1,14 +1,12 @@
 import { readdirSync, promises } from "node:fs";
 
+export const isWindows: boolean = process.platform === 'win32';
+export const isMacintosh: boolean = process.platform === 'darwin';
+export const isLinux: boolean = process.platform === 'linux';
 
-export const isWindows = process.platform === 'win32';
-export const isMacintosh = process.platform === 'darwin';
-export const isLinux = process.platform === 'linux';
-
-// util function to return the length of a path
-export const countDirectories = (path: string) => {
+export const countDirectories = (path: string): number => {
     try {
-        const directories = readdirSync(path);
+        const directories: string[] = readdirSync(path);
         return directories.length;
     } catch (error) {
         console.error(`Error reading directory: ${path}`, error);
@@ -16,11 +14,11 @@ export const countDirectories = (path: string) => {
     }
 };
 
-export const exists = async (f: string) => {
+export const exists = async (f: string): Promise<boolean> => {
     try {
         await promises.stat(f);
         return true;
     } catch {
         return false;
     }
-}
+};

@@ -1,31 +1,63 @@
-### Configuration
+<div align="center">
+<h3>🌎 NGPM</h3>
+ <span>Node global package tool for managing global packages</span>
 
-- [x] configure unbuild.
-- [ ] configure changelogen
-- [ ] configure coverage
-- [x] configure vitest
-- [x] configure linting
+<span>🚧 Project heavy development 🚧 </span>
 
-### NGPM
+  <p align="center">
+    <a href="https://marketplace.visualstudio.com/items?itemName=Nuxtr.nuxtr-vscode" target="_blank">
+      <img src="https://img.shields.io/visual-studio-marketplace/v/Nuxtr.nuxtr-vscode.svg?color=eee&label=VS%20Code%20Marketplace&logo=visual-studio-code" alt="Visual Studio Marketplace Version" />
+    </a>
+  </p>
 
-- [ ] CLI
-- [ ] Testing
-- [ ] Size/Speed Optimization
-- [ ] Documentation
+</div>
 
-### Features
 
-- PMS:
-    - [x] install
-    - [x] isInstalled
-    - [x] remove
-    - [x] dirs (package manager directory)
-        - [x] packages
-        - [x] binaries
-        - [x] prefix
+### What does NGPM do?
 
-- [x] detectGlobalPackageManagers
-- [x] mostUsedGlobalPackageManager
-- [x] isInstalledGlobally
-- [x] installGlobally
-- [x] removeGlobally
+NGPM (Node Global Package Manager) is a library designed to simplify the management of global Node.js packages across different package managers like npm, yarn, pnpm, and bun. It provides a set of utility functions to perform tasks such as installing, removing, detecting globally installed packages, detecting available package managers, most used one, and more.
+
+It uses command line tools for each package manager (npm, yarn, pnpm, and bun) to perform the tasks to make development easier, faster and more reliable.
+
+
+### Installation
+
+```bash
+npm install ngpm
+
+yarn add ngpm
+
+pnpm add ngpm
+
+bun add ngpm
+```
+
+### Usage
+
+#### Detecting Global Package Managers
+
+To detect which global package managers are installed, you can use the `detectGlobalPackageManagers` function:
+
+```ts
+const globalPackageManagers = await detectGlobalPackageManagers();
+console.log('Installed global package managers:', globalPackageManagers);
+```
+
+#### Installing Packages Globally
+
+You can use the `installGlobally` function to install packages globally using a specific package manager:
+
+```ts
+const pm = 'npm'; // Package manager (npm, yarn, pnpm, bun)
+const packages = ['prettier', 'eslint'];
+await installGlobally(pm, packages);
+```
+
+#### Removing Packages Globally
+
+To remove globally installed packages, you can use the `removeGlobally` function:
+
+```ts
+const packagesToRemove = ['prettier', 'eslint'];
+await removeGlobally(packagesToRemove);
+```
