@@ -67,51 +67,38 @@ export async function mostUsedGlobalPackageManager(): Promise<string> {
 }
 
 export async function isInstalledGlobally(dependency: string): Promise<boolean> {
+    const packageManagers = [
+        { manager: npm, name: 'npm' },
+        { manager: yarn, name: 'yarn' },
+        { manager: pnpm, name: 'pnpm' }
+    ];
 
-    if (await npm.isInstalled()) {
-        const modulesDir = await npm.dir.modules()
-        if (modulesDir) {
-            const dependencyDir = resolve(modulesDir, dependency)
-            try {
-                if (existsSync(dependencyDir)) {
-                    console.log('exists under npm');
-                    return true
+    let isInstalled = false;
+
+    for (const { manager, name } of packageManagers) {
+        if (await manager.isInstalled()) {
+            const modulesDir = await manager.dir.modules();
+
+            if (modulesDir) {
+                const doesExist = await existsSync(modulesDir?.toString());
+                if (!doesExist) {
+                    continue;
+                } else {
+                    const dependencyDir = resolve(modulesDir, dependency);
+                    try {
+                        if (existsSync(dependencyDir)) {
+                            console.log(`exists under ${name}`);
+                            isInstalled = true;
+                            break; // Exit loop if dependency is found
+                        }
+                    } catch (error) {
+                        console.error(`Error checking if ${dependency} exists under ${name}:`, error);
+                    }
                 }
-            } catch (error) {
-                console.error(`Error checking if ${dependency} exists under npm:`, error)
+
             }
         }
     }
 
-    if (await yarn.isInstalled()) {
-        const modulesDir = await yarn.dir.modules()
-        if (modulesDir) {
-            const dependencyDir = resolve(modulesDir, dependency)
-            try {
-                if (existsSync(dependencyDir)) {
-                    console.log('exists under yarn');
-                    return true
-                }
-            } catch (error) {
-                console.error(`Error checking if ${dependency} exists under yarn:`, error)
-            }
-        }
-    }
-
-    if (await pnpm.isInstalled()) {
-        const modulesDir = await pnpm.dir.modules()
-        if (modulesDir) {
-            const dependencyDir = resolve(modulesDir, dependency)
-            try {
-                if (existsSync(dependencyDir)) {
-                    console.log('exists under pnpm');
-                    return true
-                }
-            } catch (error) {
-                console.error(`Error checking if ${dependency} exists under pnpm:`, error)
-            }
-        }
-    }
-
-    return false
+    return isInstalled;
 }
