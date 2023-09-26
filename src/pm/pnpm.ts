@@ -28,11 +28,24 @@ export const remove = async () => {
     }
 }
 
+export const modulesDir = async () => {
+    try {
+        const { stdout: modulesDir, } = await await execa('pnpm', ['root', '-g']);
+        return modulesDir;
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+}
+
 
 const pnpm = {
     isInstalled,
     install,
-    remove
+    remove,
+    dir: {
+        modules: modulesDir
+    }
 }
 
 export default pnpm;

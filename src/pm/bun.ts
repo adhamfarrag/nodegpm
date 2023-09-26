@@ -28,6 +28,7 @@ export const remove = async () => {
     }
 }
 
+
 const bun = {
     isInstalled,
     install,

@@ -19,8 +19,8 @@
     - [x] install
     - [x] isInstalled
     - [x] remove
-    - [ ] dirs (package manager directory)
-        - [ ] packages
+    - [x] dirs (package manager directory)
+        - [x] packages
         - [ ] binaries
         - [ ] cache
         - [ ] prefix

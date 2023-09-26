@@ -9,8 +9,21 @@ const isInstalled = async () => {
     }
 }
 
+export const modulesDir = async () => {
+    try {
+        const { stdout: modulesDir, } = await await execa('npm', ['root', '-g']);
+        return modulesDir;
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+}
+
 const npm = {
-    isInstalled
+    isInstalled,
+    dir: {
+        modules: modulesDir
+    }
 }
 
 export default npm;

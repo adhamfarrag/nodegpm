@@ -4,3 +4,4 @@ src
 pnpm-lock.yaml
 tsconfig.json
 build.config.ts
+vite.config.ts
