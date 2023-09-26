@@ -12,8 +12,6 @@
 
 </div>
 
-
-<br>
 <br>
 
 ### What does NGPM do?
@@ -37,7 +35,6 @@ pnpm add ngpm
 bun add ngpm
 ```
 
-<br>
 <br>
 
 ### Usage
@@ -100,3 +97,22 @@ To remove globally installed packages, you can use the `removeGlobally` function
 const packagesToRemove = ['prettier', 'eslint'];
 await removeGlobally(packagesToRemove);
 ```
+
+<br>
+
+### License
+
+[MIT](https://github.com/adhamfarrag/ngpm/blob/main/LICENSE) License © 2023.
+
+<br>
+
+### Contributing
+
+Thanks for your interest 💚 <br>
+If you have any idea, feel free to [open a discussion](https://github.com/adhamfarrag/ngpm/discussions/new?category=ideas) first and let's talk about it!
+
+<br>
+
+### Acknowledgement
+
+ngpm is inspired by [nypm](https://github.com/unjs/nypm) by [unjs](https://github.com/unjs) team. 💚
