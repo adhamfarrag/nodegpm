@@ -33,7 +33,7 @@ export const modulesDir = async () => {
         const { stdout: modulesDir, } = await await execa('pnpm', ['root', '-g']);
         return modulesDir;
     } catch (error) {
-        console.error(error);
+
         return null;
     }
 }

@@ -14,7 +14,7 @@ export const modulesDir = async () => {
         const { stdout: modulesDir, } = await await execa('npm', ['root', '-g']);
         return modulesDir;
     } catch (error) {
-        console.error(error);
+
         return null;
     }
 }
@@ -24,7 +24,7 @@ export const prefixDir = async () => {
         const { stdout: prefixDir, } = await await execa('npm', ['prefix', '-g']);
         return prefixDir;
     } catch (error) {
-        console.error(error);
+
         return null;
     }
 }
@@ -34,7 +34,7 @@ export const binDir = async () => {
         const { stdout: binDir, } = await await execa('npm', ['bin', '-g']);
         return binDir;
     } catch (error) {
-        console.error(error);
+
         return null;
     }
 }
