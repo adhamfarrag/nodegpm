@@ -2,6 +2,7 @@ src
 tests
 .github
 .gitignore
+LICENSE
 pnpm-lock.yaml
 tsconfig.json
 build.config.ts
