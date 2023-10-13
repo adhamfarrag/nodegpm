@@ -1,6 +1,25 @@
 # Changelog
 
 
+## v0.0.3
+
+[compare changes](https://github.com/adhamfarrag/nodegpm/compare/v0.0.2...v0.0.3)
+
+### 🏡 Chore
+
+- Contributing and code of conduct ([125e7d7](https://github.com/adhamfarrag/nodegpm/commit/125e7d7))
+- Pull request template ([0d11cb9](https://github.com/adhamfarrag/nodegpm/commit/0d11cb9))
+- Npmignore exclude license ([2ff8e51](https://github.com/adhamfarrag/nodegpm/commit/2ff8e51))
+- Add keywords ([abb0bb8](https://github.com/adhamfarrag/nodegpm/commit/abb0bb8))
+
+### 🤖 CI
+
+- Fix pnpm-lock.yaml ([0a0c801](https://github.com/adhamfarrag/nodegpm/commit/0a0c801))
+
+### ❤️ Contributors
+
+- Adham Farrag <adham.farrag@hotmail.com>
+
 ## v0.0.2
 
 
