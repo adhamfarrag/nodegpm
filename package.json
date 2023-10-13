@@ -1,8 +1,8 @@
 {
     "name": "nodegpm",
     "version": "0.0.1",
-    "description": "Unified Global Package Manager for Node.js",
-    "repository": "adhamfarrag/nodegpm",
+    "description": "Unified management for global Node.js packages",
+    "repository": "https://github.com/adhamfarrag/nodegpm",
     "license": "MIT",
     "sideEffects": false,
     "type": "module",

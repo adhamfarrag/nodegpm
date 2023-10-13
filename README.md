@@ -1,22 +1,19 @@
 <div align="center">
 <h3>NodeGPM</h3>
- <span>Your tool for managing global packages</span>
+ <span>Unified management for global Node.js packages</span>
 
-<span>🚧 Project heavy development 🚧 </span>
+<span>🚧 Project is under development 🚧 </span>
 
   <p align="center">
-    <a href="https://marketplace.visualstudio.com/items?itemName=Nuxtr.nuxtr-vscode" target="_blank">
-      <img src="https://img.shields.io/visual-studio-marketplace/v/Nuxtr.nuxtr-vscode.svg?color=eee&label=VS%20Code%20Marketplace&logo=visual-studio-code" alt="Visual Studio Marketplace Version" />
-    </a>
+    <img src="https://img.shields.io/npm/v/nodegpm?color=eee&label=NodeGPM&logo=npm" alt="npm-badge" />
   </p>
-
 </div>
 
 <br>
 
 ### What does NodeGPM do?
 
-NodeGPM (Node Global Package Manager) is a library designed to simplify the management of global Node.js packages across different package managers like npm, yarn, pnpm, and bun. It provides a set of utility functions to perform tasks such as installing, removing, detecting globally installed packages, detecting available package managers, most used one, and more.
+NodeGPM (Node Global Package Manager) is designed to simplify the management of global Node.js packages across different package managers like npm, yarn, pnpm, and bun. It provides a set of utility functions to perform tasks such as installing, removing, detecting globally installed packages, detecting available package managers, most used one, and more soon.
 
 It uses command line tools for each package manager (npm, yarn, pnpm, and bun) to perform the tasks to make development easier, faster and more reliable.
 
