@@ -5,7 +5,9 @@
 <span>🚧 Project is under development 🚧 </span>
 
   <p align="center">
+  <a target="_blank" href="https://www.npmjs.com/package/nodegpm" align="center">
     <img src="https://img.shields.io/npm/v/nodegpm?color=eee&label=NodeGPM&logo=npm" alt="npm-badge" />
+    </a>
   </p>
 </div>
 
