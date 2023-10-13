@@ -1,7 +1,8 @@
 src
+tests
 .github
 .gitignore
 pnpm-lock.yaml
 tsconfig.json
 build.config.ts
-vite.config.ts
+vitest.config.ts
