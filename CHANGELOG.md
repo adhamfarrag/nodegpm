@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.0.4
+
+[compare changes](https://github.com/adhamfarrag/nodegpm/compare/v0.0.3...v0.0.4)
+
+### 📖 Documentation
+
+- Fix npm badge url ([c366e8a](https://github.com/adhamfarrag/nodegpm/commit/c366e8a))
+
+### 🏡 Chore
+
+- Update dependencies ([6ab72ae](https://github.com/adhamfarrag/nodegpm/commit/6ab72ae))
+
+### ❤️ Contributors
+
+- Adham Farrag <adham.farrag@hotmail.com>
+
 ## v0.0.3
 
 [compare changes](https://github.com/adhamfarrag/nodegpm/compare/v0.0.2...v0.0.3)
