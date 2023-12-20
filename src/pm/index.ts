@@ -22,8 +22,8 @@ const installationCommands = {
         flag: '-g'
     },
     bun: {
-        installCommand: 'install',
-        uninstallCommand: 'uninstall',
+        installCommand: 'add',
+        uninstallCommand: 'remove',
         flag: '-g'
     },
 };
