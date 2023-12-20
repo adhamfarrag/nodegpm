@@ -27,10 +27,20 @@ async function remove() {
     }
 }
 
+async function modulesDir() {
+    try {
+        const { stdout } = await execa('bun', ['pm', 'bin', '-g']);
+        return stdout;
+    } catch (error) {
+        return null;
+    }
+}
+
 const bun = {
     isInstalled,
     install,
-    remove
+    remove,
+    modulesDir
 }
 
 export default bun;
