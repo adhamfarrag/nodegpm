@@ -7,3 +7,6 @@ dist
 types
 .conf*
 bun.lockb
+
+.eslintcache
+TODOs.md
