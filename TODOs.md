@@ -2,8 +2,7 @@
 ### Configuration
 
 - [x] configure unbuild.
-- [ ] configure changelogen
-- [ ] configure coverage
+- [x] configure changelogen
 - [x] configure vitest
 - [x] configure linting
 
