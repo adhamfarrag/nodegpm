@@ -1,7 +1,7 @@
 import { readdirSync, promises } from "node:fs";
 
 export const isWindows: boolean = process.platform === 'win32';
-export const isMacintosh: boolean = process.platform === 'darwin';
+export const isMac: boolean = process.platform === 'darwin';
 export const isLinux: boolean = process.platform === 'linux';
 
 export const countDirectories = (path: string): number => {
