@@ -1,6 +1,6 @@
 {
   "name": "nodegpm",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Unified management for global Node.js packages",
   "repository": "https://github.com/adhamfarrag/nodegpm",
   "license": "MIT",

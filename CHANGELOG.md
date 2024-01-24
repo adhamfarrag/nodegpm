@@ -1,6 +1,30 @@
 # Changelog
 
 
+## v0.0.5
+
+[compare changes](https://github.com/adhamfarrag/nodegpm/compare/v0.0.4...v0.0.5)
+
+### 🚀 Enhancements
+
+- Bun global dir ([062d79c](https://github.com/adhamfarrag/nodegpm/commit/062d79c))
+
+### 🏡 Chore
+
+- Ignore eslintchache and todos file ([92e5d4c](https://github.com/adhamfarrag/nodegpm/commit/92e5d4c))
+- Rename isMac utility ([84a8bff](https://github.com/adhamfarrag/nodegpm/commit/84a8bff))
+- Dependencies update ([866f6df](https://github.com/adhamfarrag/nodegpm/commit/866f6df))
+- Update dependencies ([2e1139c](https://github.com/adhamfarrag/nodegpm/commit/2e1139c))
+- Security issues ([22590a9](https://github.com/adhamfarrag/nodegpm/commit/22590a9))
+
+### 🤖 CI
+
+- Fix outdated pnpm-lock.file ([9f43483](https://github.com/adhamfarrag/nodegpm/commit/9f43483))
+
+### ❤️ Contributors
+
+- Adham Farrag <adham.farrag@hotmail.com>
+
 ## v0.0.4
 
 [compare changes](https://github.com/adhamfarrag/nodegpm/compare/v0.0.3...v0.0.4)
