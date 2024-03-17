@@ -6,6 +6,7 @@ export default defineBuildConfig({
         inlineDependencies: true,
         esbuild: {
             minify: true,
+            treeShaking: true
         },
     },
 });

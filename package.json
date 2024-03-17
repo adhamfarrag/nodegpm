@@ -28,7 +28,7 @@
   "files": [
     "dist"
   ],
-  "packageManager": "pnpm@8.14.3",
+  "packageManager": "pnpm@8.15.4",
   "engines": {
     "node": "^14.16.0 || >=16.10.0"
   },
@@ -41,27 +41,28 @@
     "test:types": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/node": "^20.11.5",
-    "@typescript-eslint/eslint-plugin": "^6.19.1",
-    "@typescript-eslint/parser": "^6.19.1",
+    "@types/bun": "latest",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
     "@vitest/coverage-v8": "^0.34.6",
     "changelogen": "^0.5.5",
     "consola": "^3.2.3",
-    "eslint": "^8.56.0",
+    "eslint": "^8.57.0",
     "pathe": "^1.1.2",
-    "typescript": "^5.3.3",
+    "typescript": "^5.4.2",
     "unbuild": "^2.0.0",
     "vitest": "^0.34.6"
   },
   "dependencies": {
+    "citty": "^0.1.6",
     "execa": "^8.0.1"
   },
   "pnpm": {
     "overrides": {
-      "postcss@<8.4.31": ">=8.4.31",
-      "vite@>=4.4.0 <4.4.12": ">=4.4.12",
-      "@babel/traverse@<7.23.2": ">=7.23.2",
-      "vite@>=4.0.0 <=4.5.1": ">=4.5.2"
+      "@babel/traverse@<7.23.2": ">=7.24.0",
+      "postcss@<8.4.31": ">=8.4.35",
+      "vite@>=4.0.0 <=4.5.1": ">=4.5.2",
+      "vite@>=4.4.0 <4.4.12": ">=4.4.12"
     }
   }
 }

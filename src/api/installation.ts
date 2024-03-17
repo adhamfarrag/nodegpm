@@ -1,6 +1,6 @@
 import { execa } from 'execa';
 import { isInstalledGlobally } from './detection';
-import { PackageManagerName } from '../types';
+import type { PackageManagerName } from '../types';
 import { installationCommands } from '../pm';
 
 export const installGlobally = async (pm: PackageManagerName, packages: string[], mostUsed?: boolean) => {

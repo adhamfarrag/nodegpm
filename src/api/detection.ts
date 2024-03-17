@@ -102,7 +102,8 @@ export async function isInstalledGlobally(dependency: string): Promise<PackageMa
     const validResults = results.filter(result => result !== null) as PackageManagerResult[];
 
     if (validResults.length > 0) {
-        return validResults[0];
+        const mostUsed = validResults.reduce((prev, current) => (prev.isInstalled && !current.isInstalled) ? prev : current);
+        return mostUsed;
     }
 
     return null;
