@@ -3,24 +3,26 @@
   "image": "oven/bun",
   "remoteUser": "root",
   "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {},
     "ghcr.io/devcontainers/features/common-utils:2": {
       "configureZshAsDefaultShell": true
     },
-    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers-contrib/features/pre-commit:2": {},
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
       "moby": false,
       "dockerDashComposeVersion": "v2"
     }
   },
-  "containerEnv": {},
-  "remoteEnv": {},
   "customizations": {
     "vscode": {
       "extensions": [
         "oven.bun-vscode",
         "better-ts-errors.better-ts-errors",
         "streetsidesoftware.code-spell-checker",
-        "macros.collapseAndClose"
+        "geddski.macros",
+        "dbaeumer.vscode-eslint",
+        "github.vscode-github-actions",
+        "me-dutour-mathieu.vscode-github-actions"
       ],
       "settings": {
         "macros": {
@@ -46,6 +48,9 @@
     }
   },
   "postCreateCommand": {
-    "restore": "bun install"
-  }
+    "build": "bun install && bun update --force && exit"
+  },
+  "mounts": [
+    "type=volume,target=${containerWorkspaceFolder}/node_modules"
+  ],
 }
