@@ -22,15 +22,15 @@ export const installGlobally = async (pm: PackageManagerName, packages: string[]
 }
 
 
-export const removeGlobally = async (packages: string[]) => {
+export const removeGlobally = async (packages: string[]): Promise<string[]> => {
     const removedPackages = [];
 
     for (const packageName of packages) {
         try {
             const pkg = await isInstalledGlobally(packageName);
             if (pkg?.isInstalled) {
-                const {  uninstallCommand, flag } = installationCommands[pkg.name as PackageManagerName];
-                const { stdout: installation } = await execa(pkg.name, [uninstallCommand, flag, packageName].filter(Boolean));
+                const {  uninstallCommand, flag } = installationCommands[pkg.pm as PackageManagerName];
+                const { stdout: installation } = await execa(pkg.pm, [uninstallCommand, flag, packageName].filter(Boolean));
                 removedPackages.push(packageName);
             }
         } catch (error) {

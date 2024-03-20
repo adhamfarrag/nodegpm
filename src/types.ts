@@ -1,4 +1,5 @@
 export type PackageManagerName = "npm" | "yarn" | "pnpm" | "bun";
+export type PackageManagers = ['npm', 'yarn', 'pnpm', 'bun'];
 
 export type PackageManager = {
     manager: {
@@ -11,10 +12,10 @@ export type PackageManager = {
             bin?: () => Promise<string | null>,
         }
     },
-    name: PackageManagerName
+    pm: PackageManagerName
 };
 
 export type PackageManagerResult = {
-    name: string;
+    pm: string;
     isInstalled: boolean;
 };

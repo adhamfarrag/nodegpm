@@ -2,11 +2,11 @@ import { resolve } from 'pathe';
 import { existsSync } from "node:fs";
 import packageManagers from '../pm';
 import { countDirectories, exists } from '../utils';
-import type { PackageManager, PackageManagerResult } from '../types';
+import type { PackageManager, PackageManagerResult, PackageManagers } from '../types';
 
 const { npm, yarn, pnpm, bun } = packageManagers;
 
-export async function  detectGlobalPackageManagers() {
+export async function  detectGlobalPackageManagers(): Promise<PackageManagers> {
     const globalPackageManagers = []
 
     if (await npm.isInstalled()) {
@@ -25,7 +25,7 @@ export async function  detectGlobalPackageManagers() {
         globalPackageManagers.push('bun')
     }
 
-    return globalPackageManagers
+    return globalPackageManagers as PackageManagers
 }
 
 export async function mostUsedGlobalPackageManager(): Promise<string> {
@@ -73,9 +73,9 @@ export async function mostUsedGlobalPackageManager(): Promise<string> {
 
 export async function isInstalledGlobally(dependency: string): Promise<PackageManagerResult | null> {
     const packageManagers: PackageManager[] = [
-        { manager: npm, name: 'npm' },
-        { manager: yarn, name: 'yarn' },
-        { manager: pnpm, name: 'pnpm' }
+        { manager: npm, pm: 'npm' },
+        { manager: yarn, pm: 'yarn' },
+        { manager: pnpm, pm: 'pnpm' }
     ];
 
     async function checkDependency(manager: PackageManager): Promise<PackageManagerResult | null> {
@@ -88,12 +88,12 @@ export async function isInstalledGlobally(dependency: string): Promise<PackageMa
                     if (doesExist) {
                         const dependencyDir = resolve(modulesDir, dependency);
                         const isInstalled = existsSync(dependencyDir);
-                        return { name: manager.name, isInstalled };
+                        return { pm: manager.pm, isInstalled };
                     }
                 }
             }
         } catch (error) {
-            console.error(`Error checking if ${dependency} exists under ${manager.name}:`, error);
+            console.error(`Error checking if ${dependency} exists under ${manager.pm}:`, error);
         }
         return null;
     }
