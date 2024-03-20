@@ -1,33 +1,19 @@
 name: ci
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
-    branches:
-      - main
+  push:
+    branches: [main]
 
 jobs:
   ci:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: corepack enable
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
       - uses: oven-sh/setup-bun@v1
-        if: ${{ matrix.os != 'windows-latest' }}
-      - uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache: "pnpm"
-      - run: pnpm install
-      - run: pnpm lint
-        if: ${{ matrix.os == 'ubuntu-latest' }}
-      - run: pnpm test:types
-        if: ${{ matrix.os == 'ubuntu-latest' }}
-      - run: pnpm build
-      - run: pnpm vitest --coverage
-      - uses: codecov/codecov-action@v3
+          bun-version: "latest"
+      - run: bun install
+      - run: bun typecheck
+      - run: bun lint
+      - run: bun test
