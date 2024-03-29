@@ -1,7 +1,9 @@
 import { defineBuildConfig } from "unbuild";
 
 export default defineBuildConfig({
-    declaration: "compatible",
+    declaration: true,
+    clean: true,
+
     rollup: {
         inlineDependencies: true,
         esbuild: {
