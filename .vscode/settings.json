@@ -1,4 +1,9 @@
 {
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "never"
+  },
   "files.exclude": {
     "**/dist": true
   },
@@ -9,5 +14,5 @@
     "nodegpm",
     "nuxi",
     "taze"
-  ]
+  ],
 }
