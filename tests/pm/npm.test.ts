@@ -9,8 +9,10 @@ describe('NPM', () => {
     });
 
     it('Should return prefix dir location', async () => {
-        const prefixDir = await npm.dir.prefix()
-        expect(prefixDir).toBeString()
+        if (npm && npm.dir && npm.dir.prefix) {
+            const prefixDir = await npm.dir.prefix()
+            expect(prefixDir).toBeString()
+        }
     });
 
     it('Should return modules dir location', async () => {

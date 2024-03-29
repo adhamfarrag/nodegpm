@@ -1,4 +1,6 @@
 import { execa } from 'execa';
+import type { PackageManager } from '../types';
+
 
 async function isInstalled() {
     try {
@@ -37,7 +39,8 @@ async function modulesDir() {
     }
 }
 
-const bun = {
+const bun: PackageManager = {
+    name: 'bun',
     isInstalled,
     install,
     remove,

@@ -1,21 +1,18 @@
 export type PackageManagerName = "npm" | "yarn" | "pnpm" | "bun";
-export type PackageManagers = ['npm', 'yarn', 'pnpm', 'bun'];
+export type PackageManagers = PackageManagerName[];
 
 export type PackageManager = {
-    manager: {
-        isInstalled: () => Promise<boolean>,
-        install?: () => Promise<boolean>,
-        remove?: () => Promise<boolean>,
-        dir: {
-            modules: () => Promise<string | null>,
-            prefix?: () => Promise<string | null>,
-            bin?: () => Promise<string | null>,
-        }
-    },
-    pm: PackageManagerName
+    name: string,
+    isInstalled: () => Promise<boolean>,
+    install?: () => Promise<boolean>,
+    remove?: () => Promise<boolean>,
+    dir: {
+        modules: () => Promise<string | null>,
+        prefix?: () => Promise<string | null>,
+    }
 };
 
-export type PackageManagerResult = {
+export type InstalledPackageResult = {
     pm: string;
     isInstalled: boolean;
 };
