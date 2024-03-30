@@ -1,4 +1,6 @@
 import { describe, it, expect } from 'bun:test';
+import { isAbsolute } from 'pathe';
+
 import pnpm from '../../src/pm/pnpm';
 
 describe('PNPM', () => {
@@ -11,5 +13,8 @@ describe('PNPM', () => {
     it('Should return modules dir location', async () => {
         const modulesDir = await pnpm.dir.modules()
         expect(modulesDir).toBeString()
+        if (modulesDir) {
+            expect(isAbsolute(modulesDir)).toBe(true)
+        }
     });
 })

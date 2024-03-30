@@ -1,4 +1,6 @@
 import { describe, it, expect } from 'bun:test';
+import { isAbsolute } from 'pathe';
+
 import bun from '../../src/pm/bun';
 
 describe('Yarn', () => {
@@ -11,5 +13,9 @@ describe('Yarn', () => {
         const modulesDir = await bun.dir.modules()
         // TODO: Fix this test
         expect(modulesDir).toBeNull();
+        if (modulesDir) {
+            // TODO: Fix this test
+            expect(isAbsolute(modulesDir)).toBe(false)
+        }
     });
 })

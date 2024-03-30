@@ -1,4 +1,6 @@
 import { describe, it, expect } from 'bun:test';
+import { isAbsolute } from 'pathe';
+
 import yarn from '../../src/pm/yarn';
 
 describe('Yarn', () => {
@@ -10,5 +12,8 @@ describe('Yarn', () => {
     it('Should return modules dir location', async () => {
         const modulesDir = await yarn.dir.modules()
         expect(modulesDir).toBeString()
+        if (modulesDir) {
+            expect(isAbsolute(modulesDir)).toBe(true)
+        }
     });
 })
