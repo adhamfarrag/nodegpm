@@ -81,9 +81,9 @@ console.log('Is nuxi installed globally?', nuxi);
 You can use the `installGlobally` function to install packages globally using a specific package manager:
 
 ```ts
-const pm = 'npm'; // Package manager (npm, yarn, pnpm, bun)
+const pm = 'npm'; // Package manager (npm, yarn, pnpm, bun) or most-used
 const packages = ['prettier', 'eslint'];
-await installGlobally(pm, packages);
+await installGlobally(packages, pm);
 ```
 
 <br>

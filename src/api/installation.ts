@@ -1,16 +1,22 @@
 import { execa } from 'execa';
-import { isInstalledGlobally } from './detection';
+import { isInstalledGlobally, mostUsedGlobalPackageManager } from './detection';
 import type { PackageManagerName } from '../types';
 import { installationCommands } from '../pm';
 
-export const installGlobally = async (pm: PackageManagerName, packages: string[], mostUsed?: boolean) => {
+
+export const installGlobally = async (packages: string[], pm: PackageManagerName | 'most-used') => {
     const installedPackages = [];
 
     for (const packageName of packages) {
         try {
             const pkg = await isInstalledGlobally(packageName);
             if (!pkg?.isInstalled) {
-                const { stdout: installation } = await execa(pm, ['install', '-g', packageName].filter(Boolean));
+                if (pm !== 'most-used') {
+                    const { stdout: installation } = await execa(pm, ['install', '-g', packageName].filter(Boolean));
+                } else {
+                    const mostUsedPM = await mostUsedGlobalPackageManager();
+                    const { stdout: installation } = await execa(mostUsedPM, ['install', '-g', packageName].filter(Boolean));
+                }
                 installedPackages.push(packageName);
             }
         } catch (error) {

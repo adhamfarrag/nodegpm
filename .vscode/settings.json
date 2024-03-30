@@ -13,6 +13,8 @@
     "knip",
     "nodegpm",
     "nuxi",
-    "taze"
+    "nypm",
+    "taze",
+    "unjs"
   ],
 }
