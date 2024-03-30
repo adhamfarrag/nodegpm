@@ -1,6 +1,6 @@
 import {
-    detectGlobalPackageManagers,
-    mostUsedGlobalPackageManager,
+    detectPackageManagers,
+    mostUsedGPM,
     isInstalledGlobally
 } from './api/detection';
 
@@ -9,8 +9,8 @@ import type { PackageManagerName, PackageManager, InstalledPackageResult, Packag
 import { npm, yarn, pnpm, bun } from './pm';
 
 export {
-    detectGlobalPackageManagers,
-    mostUsedGlobalPackageManager,
+    detectPackageManagers,
+    mostUsedGPM,
     isInstalledGlobally,
     installGlobally,
     removeGlobally,

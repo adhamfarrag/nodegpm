@@ -1,5 +1,5 @@
 import { execa } from 'execa';
-import { isInstalledGlobally, mostUsedGlobalPackageManager } from './detection';
+import { isInstalledGlobally, mostUsedGPM } from './detection';
 import type { PackageManagerName } from '../types';
 import { installationCommands } from '../pm';
 
@@ -14,7 +14,7 @@ export const installGlobally = async (packages: string[], pm: PackageManagerName
                 if (pm !== 'most-used') {
                     const { stdout: installation } = await execa(pm, ['install', '-g', packageName].filter(Boolean));
                 } else {
-                    const mostUsedPM = await mostUsedGlobalPackageManager();
+                    const mostUsedPM = await mostUsedGPM();
                     const { stdout: installation } = await execa(mostUsedPM, ['install', '-g', packageName].filter(Boolean));
                 }
                 installedPackages.push(packageName);

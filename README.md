@@ -44,10 +44,10 @@ Here are the vailable functions:
 
 #### Detecting Global Package Managers
 
-To detect which global package managers are installed, you can use the `detectGlobalPackageManagers` function:
+To detect which global package managers are installed, you can use the `detectPackageManagers` function:
 
 ```ts
-const globalPackageManagers = await detectGlobalPackageManagers();
+const globalPackageManagers = await detectPackageManagers();
 console.log('Installed global package managers:', globalPackageManagers);
 ```
 
@@ -55,10 +55,10 @@ console.log('Installed global package managers:', globalPackageManagers);
 
 #### Detecting Most Used Global Package Manager
 
-To detect the most used global package manager, you can use the `mostUsedGlobalPackageManager` function:
+To detect the most used global package manager, you can use the `mostUsedGPM` function:
 
 ```ts
-const mostUsedPM = await mostUsedGlobalPackageManager();
+const mostUsedPM = await mostUsedGPM();
 console.log('Most used global package manager:', mostUsedPM);
 ```
 

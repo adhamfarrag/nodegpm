@@ -1,8 +1,8 @@
 import { $ } from 'bun';
 import { describe, it, expect, beforeAll, afterAll } from 'bun:test';
 import {
-    detectGlobalPackageManagers,
-    mostUsedGlobalPackageManager,
+    detectPackageManagers,
+    mostUsedGPM,
     isInstalledGlobally,
     removeGlobally,
     type PackageManagerName
@@ -18,7 +18,7 @@ describe('API', () => {
     })
 
     it('Should return installed package managers', async () => {
-        const packageManagers = await detectGlobalPackageManagers();
+        const packageManagers = await detectPackageManagers();
         expect(packageManagers).toBeInstanceOf(Array);
         const expectedPackageManagers: PackageManagerName[] = ['npm', 'yarn', 'pnpm', 'bun'];
         expect(expectedPackageManagers.some(pm => packageManagers.includes(pm))).toBeTruthy();
@@ -26,7 +26,7 @@ describe('API', () => {
     });
 
     it('Should return the most used package manager', async () => {
-        const packageManager = await mostUsedGlobalPackageManager();
+        const packageManager = await mostUsedGPM();
         expect(packageManager).toBeOneOf(['npm', 'yarn', 'pnpm', 'bun']);
     });
 

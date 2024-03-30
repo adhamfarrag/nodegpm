@@ -6,7 +6,7 @@ import type { PackageManager, InstalledPackageResult, PackageManagers } from '..
 
 const { npm, yarn, pnpm, bun } = packageManagers;
 
-export async function  detectGlobalPackageManagers(): Promise<PackageManagers> {
+export async function  detectPackageManagers(): Promise<PackageManagers> {
     const globalPackageManagers = []
 
     if (await npm.isInstalled()) {
@@ -28,7 +28,7 @@ export async function  detectGlobalPackageManagers(): Promise<PackageManagers> {
     return globalPackageManagers as PackageManagers
 }
 
-export async function mostUsedGlobalPackageManager(): Promise<string> {
+export async function mostUsedGPM(): Promise<string> {
 
     const packageManagers = []
 
