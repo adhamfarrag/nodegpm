@@ -1,4 +1,6 @@
 import { execa } from 'execa';
+import type { PackageManager } from '../types';
+
 
 async function isInstalled() {
     try {
@@ -36,7 +38,8 @@ async function modulesDir() {
     }
 }
 
-const pnpm = {
+const pnpm: PackageManager = {
+    name: 'pnpm',
     isInstalled,
     install,
     remove,

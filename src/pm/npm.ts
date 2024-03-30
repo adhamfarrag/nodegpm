@@ -1,4 +1,5 @@
 import { execa } from 'execa';
+import type { PackageManager } from '../types';
 
 async function isInstalled() {
     try {
@@ -27,21 +28,13 @@ async function prefixDir() {
     }
 }
 
-async function binDir() {
-    try {
-        const { stdout } = await execa('npm', ['bin', '-g']);
-        return stdout;
-    } catch (error) {
-        return null;
-    }
-}
 
-const npm = {
+const npm: PackageManager = {
+    name: 'npm',
     isInstalled,
     dir: {
         modules: modulesDir,
         prefix: prefixDir,
-        bin: binDir,
     }
 }
 

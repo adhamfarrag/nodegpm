@@ -9,9 +9,9 @@
 ### NGPM
 
 - [ ] CLI
-- [ ] Testing
+- [x] Testing
 - [ ] Size/Speed Optimization
-- [ ] Documentation
+- [x] Documentation
 
 ### Features
 
@@ -24,8 +24,8 @@
         - [x] binaries
         - [x] prefix
 
-- [x] detectGlobalPackageManagers
-- [x] mostUsedGlobalPackageManager
+- [x] detectPackageManagers
+- [x] mostUsedPM
 - [x] isInstalledGlobally
 - [x] installGlobally
 - [x] removeGlobally

@@ -2,7 +2,11 @@ src
 tests
 .github
 .gitignore
+.eslintrc
 LICENSE
+CHANGELOG.md
+CONTRIBUTING.md
+README.md
 bun.lockb
 tsconfig.json
 build.config.ts

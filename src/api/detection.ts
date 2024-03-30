@@ -2,11 +2,11 @@ import { resolve } from 'pathe';
 import { existsSync } from "node:fs";
 import packageManagers from '../pm';
 import { countDirectories, exists } from '../utils';
-import type { PackageManager, PackageManagerResult, PackageManagers } from '../types';
+import type { PackageManager, InstalledPackageResult, PackageManagers } from '../types';
 
 const { npm, yarn, pnpm, bun } = packageManagers;
 
-export async function  detectGlobalPackageManagers(): Promise<PackageManagers> {
+export async function  detectPackageManagers(): Promise<PackageManagers> {
     const globalPackageManagers = []
 
     if (await npm.isInstalled()) {
@@ -28,7 +28,7 @@ export async function  detectGlobalPackageManagers(): Promise<PackageManagers> {
     return globalPackageManagers as PackageManagers
 }
 
-export async function mostUsedGlobalPackageManager(): Promise<string> {
+export async function mostUsedGPM(): Promise<string> {
 
     const packageManagers = []
 
@@ -71,35 +71,29 @@ export async function mostUsedGlobalPackageManager(): Promise<string> {
 
 }
 
-export async function isInstalledGlobally(dependency: string): Promise<PackageManagerResult | null> {
-    const packageManagers: PackageManager[] = [
-        { manager: npm, pm: 'npm' },
-        { manager: yarn, pm: 'yarn' },
-        { manager: pnpm, pm: 'pnpm' }
-    ];
+export async function isInstalledGlobally(dependency: string): Promise<InstalledPackageResult | null> {
+    const { npm, yarn, pnpm, bun } = packageManagers
 
-    async function checkDependency(manager: PackageManager): Promise<PackageManagerResult | null> {
+    const checkDependency =  async (manager: PackageManager): Promise<InstalledPackageResult | null> => {
         try {
-            if (await manager.manager.isInstalled()) {
-                const modulesDir = await manager.manager.dir.modules();
-
+            const isInstalled = await manager.isInstalled();
+            if (isInstalled) {
+                const modulesDir = await manager.dir.modules();
                 if (modulesDir) {
-                    const doesExist = await existsSync(modulesDir.toString());
-                    if (doesExist) {
-                        const dependencyDir = resolve(modulesDir, dependency);
-                        const isInstalled = existsSync(dependencyDir);
-                        return { pm: manager.pm, isInstalled };
-                    }
+                    const dependencyDir = resolve(modulesDir, dependency);
+                    const doesExist = existsSync(dependencyDir);
+                    return { pm: manager.name, isInstalled: doesExist };
                 }
             }
         } catch (error) {
-            console.error(`Error checking if ${dependency} exists under ${manager.pm}:`, error);
+            console.error(`Error checking if ${dependency} exists under ${manager.name}:`, error);
         }
         return null;
     }
 
-    const results = await Promise.all(packageManagers.map(checkDependency));
-    const validResults = results.filter(result => result !== null) as PackageManagerResult[];
+    const managers = [npm, yarn, pnpm, bun];
+    const results = await Promise.all(managers.map(checkDependency));
+    const validResults = results.filter(result => result !== null) as InstalledPackageResult[];
 
     if (validResults.length > 0) {
         const mostUsed = validResults.reduce((prev, current) => (prev.isInstalled && !current.isInstalled) ? prev : current);

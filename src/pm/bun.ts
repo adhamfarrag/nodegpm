@@ -1,4 +1,6 @@
 import { execa } from 'execa';
+import type { PackageManager } from '../types';
+
 
 async function isInstalled() {
     try {
@@ -27,6 +29,7 @@ async function remove() {
     }
 }
 
+// TODO: Handle error or watch Bun issues for a fix
 async function modulesDir() {
     try {
         const { stdout } = await execa('bun', ['pm', 'bin', '-g']);
@@ -36,11 +39,14 @@ async function modulesDir() {
     }
 }
 
-const bun = {
+const bun: PackageManager = {
+    name: 'bun',
     isInstalled,
     install,
     remove,
-    modulesDir
+    dir: {
+        modules: modulesDir
+    }
 }
 
 export default bun;
