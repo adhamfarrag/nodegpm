@@ -4,8 +4,9 @@ import type { PackageManagerName } from '../types';
 import { installationCommands } from '../pm';
 
 
-export const installGlobally = async (packages: string[], pm: PackageManagerName | 'most-used') => {
+export const installGlobally = async (packages: string[], pm?: PackageManagerName | 'most-used') => {
     const installedPackages = [];
+    pm = pm || 'most-used';
 
     for (const packageName of packages) {
         try {
