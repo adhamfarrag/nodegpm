@@ -1,9 +1,17 @@
-import { describe, it, expect } from 'bun:test';
+import { $ } from 'bun';
+import { describe, it, expect, beforeAll } from 'bun:test';
 import { isAbsolute } from 'pathe';
 
-import yarn from '../../src/pm/yarn';
+import { isInstalledGlobally, yarn } from '../../src';
 
 describe('Yarn', () => {
+    beforeAll(async () => {
+        if (!(await isInstalledGlobally('yarn'))) {
+            console.log('Installing yarn...');
+            await $`npm install -g yarn`.quiet()
+        }
+    })
+
     it('Should be installed', async () => {
         const isInstalled = await yarn.isInstalled();
         expect(isInstalled).toBe(true);

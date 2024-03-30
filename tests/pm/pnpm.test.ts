@@ -1,9 +1,21 @@
-import { describe, it, expect } from 'bun:test';
+import { $ } from 'bun';
+import { describe, it, expect, beforeAll } from 'bun:test';
 import { isAbsolute } from 'pathe';
 
-import pnpm from '../../src/pm/pnpm';
+import { isInstalledGlobally, pnpm } from '../../src';
 
 describe('PNPM', () => {
+    beforeAll(async () => {
+        await $`npm install -g pnpm`.quiet()
+    })
+
+    beforeAll(async () => {
+        if (!(await isInstalledGlobally('pnpm'))) {
+            console.log('Installing pnpm...');
+            await $`npm install -g pnpm`.quiet()
+        }
+    })
+
     it('Should be installed', async () => {
         const isInstalled = await pnpm.isInstalled();
         expect(isInstalled).toBe(true);
