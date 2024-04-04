@@ -13,6 +13,7 @@ export type PackageManager = {
 };
 
 export type InstalledPackageResult = {
-    pm: string;
     isInstalled: boolean;
+    pm?: PackageManagerName[] | null;
+    executableBy: PackageManagerName | null;
 };

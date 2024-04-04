@@ -35,9 +35,9 @@ export const removeGlobally = async (packages: string[]): Promise<string[]> => {
     for (const packageName of packages) {
         try {
             const pkg = await isInstalledGlobally(packageName);
-            if (pkg?.isInstalled) {
-                const {  uninstallCommand, flag } = installationCommands[pkg.pm as PackageManagerName];
-                const { stdout: installation } = await execa(pkg.pm, [uninstallCommand, flag, packageName].filter(Boolean));
+            if (pkg?.isInstalled && pkg.executableBy) {
+                const {  uninstallCommand, flag } = installationCommands[pkg.executableBy as PackageManagerName];
+                const { stdout: installation } = await execa(pkg.executableBy, [uninstallCommand, flag, packageName].filter(Boolean));
                 removedPackages.push(packageName);
             }
         } catch (error) {

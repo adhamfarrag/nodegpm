@@ -71,7 +71,6 @@ To detect if a package is installed globally, you can use the `isGloballyInstall
 ```ts
 const nuxi = await isInstalledGlobally('nuxi');
 console.log('Is nuxi installed globally?', nuxi);
-
 ```
 
 <br>

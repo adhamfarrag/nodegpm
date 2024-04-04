@@ -34,20 +34,22 @@
     "build": "unbuild",
     "release": "pnpm test && pnpm build && changelogen --release --push && pnpm publish",
     "try": "unbuild && clear && node dist/index.mjs",
+    "pg": "bun run playground/index.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "@typescript-eslint/eslint-plugin": "^7.4.0",
-    "@typescript-eslint/parser": "^7.4.0",
+    "@typescript-eslint/eslint-plugin": "^7.5.0",
+    "@typescript-eslint/parser": "^7.5.0",
     "changelogen": "^0.5.5",
     "eslint": "^8.57.0",
-    "knip": "^5.7.0",
+    "knip": "^5.7.2",
     "pathe": "^1.1.2",
     "typescript": "^5.4.3",
     "unbuild": "^2.0.0"
   },
   "dependencies": {
-    "execa": "^8.0.1"
+    "execa": "^8.0.1",
+    "pkg-types": "^1.0.3"
   }
 }

@@ -31,9 +31,12 @@ describe('API', () => {
     });
 
     it('Should check if a package is installed globally', async () => {
-        const nodemon = await isInstalledGlobally('nuxi');
-        expect(nodemon?.isInstalled).toBe(true);
-        expect(nodemon?.pm).toBeOneOf(['npm', 'yarn', 'pnpm', 'bun']);
+        const packageManagers = await detectPackageManagers();
+        const nodemon = await isInstalledGlobally('nuxi')
+        expect(nodemon?.isInstalled).toBe(true)
+        const expectedPackageManagers: PackageManagerName[] = ['npm', 'yarn', 'pnpm', 'bun'];
+        expect(expectedPackageManagers.some(pm => packageManagers.includes(pm))).toBeTruthy();
+        expect(nodemon?.executableBy).toBeOneOf(['npm', 'yarn', 'pnpm']);
     });
 
     it('Should remove a package globally', async () => {

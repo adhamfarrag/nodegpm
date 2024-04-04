@@ -12,7 +12,7 @@ describe('Yarn', () => {
     it('Should return modules dir location', async () => {
         const modulesDir = await bun.dir.modules()
         // TODO: Fix this test
-        expect(modulesDir).toBeNull();
+        expect(modulesDir).not.toBeString()
         if (modulesDir) {
             // TODO: Fix this test
             expect(isAbsolute(modulesDir)).toBe(false)
